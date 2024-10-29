@@ -1,0 +1,38 @@
+.column {
+	display: inline-block;
+	vertical-align: top;
+	width: min(6rem, 10%);
+}
+
+.column :first-child {
+	margin-bottom: 1rem;
+}
+
+.empty {
+	opacity: 0.7;
+}
+
+.column img {
+	display: block;
+	width: 100%;
+	border: solid 5px transparent;
+}
+
+.moveable:hover {
+	border-radius: 15px 15px 0px 0px;
+	border-top: solid 5px #392191;
+}
+.moveable:hover, .moveable:hover ~ * {
+	border-left: solid 5px #392191;
+	border-right: solid 5px #392191;
+	filter: brightness(1.1);
+}
+.moveable:hover:last-child, .moveable:hover ~ *:last-child {
+	border-bottom: solid 5px #392191;
+}
+.moveable:hover ~ *:last-child {
+	border-radius: 0px 0px 15px 15px;
+}
+.moveable:hover:last-child {
+	border-radius: 15px 15px 15px 15px;
+}
