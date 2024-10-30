@@ -32,18 +32,19 @@ export function deal(board: Board): Board {
   return board;
 }
 
-export function canMove(board: Board, column: Card[], i: number): boolean {
+export function canMove(board: Board, column: Card[]): number {
+  if (column.length === 0) return 0;
   const freeColumns = board.columns.filter(c => c.length === 0).length;
   const freeOpen = [...board.open].filter(c => c === undefined).length;
   let run = true;
-  for (let x = i+1; x < column.length; ++x) {
-    const prev = column[x-1];
-    const curr = column[x];
-    if (prev.value-1 !== curr.value || isBlack(prev.suit) == isBlack(curr.suit)) {
-      return false;
-    }
+  let i = column.length - 1;
+  while (i) {
+    const prev = column[i-1];
+    const curr = column[i];
+    if (isBlack(prev.suit) == isBlack(curr.suit) || prev.value != curr.value+1) break;
+    i -= 1;
   }
-  return true;
+  return i;
 }
 
 export function move(dst: Card[] | "foundation" | "open", src: Card[] | "open", i: number): boolean {

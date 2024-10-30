@@ -1,15 +1,29 @@
+.empty {
+	opacity: 0.7;
+}
+
+.draghandle {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.dragparent, .dragparent div {
+	margin: 0;
+}
+.dragparent {
+}
+
 .column {
 	display: inline-block;
 	vertical-align: top;
 	width: min(6rem, 10%);
 }
 
-.column :first-child {
+.column > :first-child {
 	margin-bottom: 1rem;
-}
-
-.empty {
-	opacity: 0.7;
 }
 
 .column img {
